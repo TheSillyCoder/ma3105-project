@@ -1,5 +1,5 @@
 \documentclass{scrartcl}
-\usepackage{hyperref}
+\usepackage{hyperref, graphicx}
 \usepackage{amsmath,amsfonts, amssymb, physics}
 \usepackage{amsthm}
 \usepackage[english]{babel}
@@ -126,6 +126,13 @@ We were asked to solve the following differential equations using the aforementi
 $$\frac{dy}{dx} = y - x$$
 $$\frac{dy}{dx} = y - x^2$$
 
+\subsection{Direction Fields}
+Direction Fields help us to visualise how to solutions of the differential equation will look, before actaully going about solving them.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{"direction_fields.png"}
+    \caption{Direction Fields for the given ODEs}
+\end{figure}
 \subsection{Analytical Solutions}
 The analytical solutions to these equations can be computed by converting these into exact differentials using the integrating factor $\mu(x) = e^{-x}$. Solving these equations with the intial condition $y(0)$ gives us the solutions
 $$y_1(x) = 1 + x + (y(0) - 1)e^x$$
@@ -133,4 +140,36 @@ $$y_2(x) = 2 + 2x + x^2 + (y(0) - 2)e^x$$
 \subsection{Initial Values}
 The initial values provided for both these equations is $y(0) = \cfrac{2}{3}$
 \section{Solving the ODEs}
+The given IVPs were solved using the priorly mentioned numerical methods, implemented in python.
+A plot of the solutions obtained on the interval $x \in [0, 5]$ has been included below.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{"solutions.png"}
+    \caption{Plot of the solutions of the ODEs using the priorly mentioned numerical methods}
+\end{figure}
+\subsection{Observations and Comparisions}
+Looking at the plots, we can compare the methods and conclude the following:
+\begin{itemize}
+    \item \textbf{Forward Euler Method:} Produced noticeable deviations from the exact solution, and as the value of $x$ grew, the
+        deviation became larger.
+    \item \textbf{RK2 Method:} Significantly reduced errors compared to Forward Euler. The inclusion of intermediate slopes provided better stability and accuracy.
+    \item \textbf{RK4 Method:} Delivered solutions nearly indistinguishable from the exact solution. The higher accuracy of $\bigO(h^5)$ made RK4 the most reliable among the three methods for the given ODEs. 
+\end{itemize}
+\subsection{Varying the Initial Value}
+\section{Error Analysis}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{"errors_euler.png"}
+    \caption{Plots of Mean Absolute Error vs Step-size for Euler Method}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{"errors_rk2.png"}
+    \caption{Plots of Mean Absolute Error vs Step-size for RK2 Method}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{"errors_rk4.png"}
+    \caption{Plots of Mean Absolute Error vs Step-size for RK4 Method}
+\end{figure}
 \end{document}
