@@ -156,6 +156,17 @@ Looking at the plots, we can compare the methods and conclude the following:
     \item \textbf{RK4 Method:} Delivered solutions nearly indistinguishable from the exact solution. The higher accuracy of $\bigO(h^5)$ made RK4 the most reliable among the three methods for the given ODEs. 
 \end{itemize}
 \subsection{Varying the Initial Value}
+We varied the initial value $y(0)$ and plotted the analytical solution and RK4 solutions to see how they compare. 
+The step-size taken for the solutions was $h = 0.025$.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{"varied_initial_vals_RK4.png"}
+    \caption{Plots of the Solutions of the given Differential Equations with varying values of $y(0)$}
+\end{figure}
+
+As we can see in the above figure, the RK4 solutions still coincide with the analytical solutions.
+
 \section{Error Analysis}
 \begin{figure}[h]
     \centering
