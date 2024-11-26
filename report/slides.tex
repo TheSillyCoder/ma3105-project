@@ -3,7 +3,6 @@
 \usepackage{amsmath,amsfonts, amssymb, physics}
 \usepackage{amsthm}
 \usepackage[english]{babel}
-\usepackage{enumitem}
 
 \newcommand{\rn}{\mathbb{R}}
 \newcommand{\nn}{\mathbb{N}}
@@ -177,6 +176,25 @@ A derivation similar to that of RK2 can be done for this as well and it can be s
     The initial values provided for both these equations is $y(0) = \cfrac{2}{3}$
 \end{frame}
 \begin{frame}
+    \frametitle{Existence and Uniqueness}
+How do we know, that a unique solution to this differential equation exists? We have Picard's Existence Theorem to thank for that. 
+\begin{theorem}[Picard's Existence Theorem]
+    \label{picard}
+    Let $f : [0, T] \times \mathbb{R}^d \to \mathbb{R}^d$ be continuous in t and uniformly Lipschitz in $y$. Let $y_0 \in  \mathbb{R}^d$ . Then there exists a unique
+differentiable $y : [0, T ] \to \mathbb{R^d}$ satisfying
+$$\dv{y}{t} = f(t, y),~~~y(0) = y_0$$
+\end{theorem}
+\end{frame}
+\begin{frame}
+    \frametitle{Existence and Uniqueness}
+
+    Here "Uniformly Lipschitz" implies that $\exists M \in \mathbb{R}$ such that $\forall y_1, y_2 \in \mathbb{R}^d$ we have $$|f(t, y_1) - f(t, y_2)| < M|y_1 - y_2| ~ ~ \forall t \in [0, T]$$
+
+    In other words, the Lipschitz constant $M$ is independent of $t$. 
+    
+    
+\end{frame}
+\begin{frame}
     \frametitle{Direction Fields}
     \begin{figure}[h]
         \centering
@@ -228,5 +246,37 @@ A derivation similar to that of RK2 can be done for this as well and it can be s
         \includegraphics[width=\linewidth]{"varied_initial_vals_RK4.png"}
         \caption{Plots of the Solutions of the given Differential Equations with varying values of $y(0)$}
     \end{figure}
+\end{frame}
+\begin{frame}
+    \frametitle{Average Abosulte Error with Varying Step Size: Euler } 
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\linewidth]{"errors_euler.png"}
+        \caption{Plots of Mean Absolute Error vs Step-size for Euler Method}
+    \end{figure}
+\end{frame}
+\begin{frame}
+    \frametitle{Average Abosulte Error with Varying Step Size: RK2 } 
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\linewidth]{"errors_rk2.png"}
+        \caption{Plots of Mean Absolute Error vs Step-size for RK2 Method}
+    \end{figure}
+\end{frame}
+\begin{frame}
+    \frametitle{Average Abosulte Error with Varying Step Size: RK4 } 
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\linewidth]{"errors_rk4.png"}
+        \caption{Plots of Mean Absolute Error vs Step-size for RK4 Method}
+    \end{figure}
+\end{frame}
+\begin{frame}
+    \frametitle{References}
+    \begin{itemize}
+        \item Wikipedia
+        \item Elementary Error Analysis, by Kendal Atkinson
+        
+    \end{itemize}
 \end{frame}
 \end{document}
