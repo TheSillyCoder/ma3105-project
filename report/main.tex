@@ -105,6 +105,22 @@ $$\boxed{y_{n+1} = y_n + h\left[\left(1 - \cfrac{1}{2\alpha}\right)f(x_n, y_n) +
 
 As is clear from this derivation, this method is valid upto an error of the order of $\bigO(h^3)$.
 
+\noindent \textbf{Error Estimates}
+
+\noindent A brief discussion for the error estimates for  the RK2 method.
+
+\noindent \textbf{Local Truncation Error: Fehlberg Methods}
+
+\noindent We simultaneuosly compare the numerical solutions for a lower order RK method and a higher order RK method. The local 
+truncation error at the $n^{th}$ point is given by, 
+$$\boxed{T_{n} \approx \hat{y}_{n} - y_{n+1}}$$
+It can be shown to be the correct assymptotic result, as $h \to 0$. 
+
+\noindent \textbf{Global Error: Richardson Extrapolation}
+
+\noindent This involves solving a particular Runge-Kutta method at step sizeds of $h$ and $2h$ then the difference between the numerically obtained solutions of these two different step sizes can be used
+with richardson extrapolation to derive an estimation of the local truncation error in, the numerical solution for step-size $h$. For RK2 in particukar it is given by:
+$$\boxed{y(x_n) - y_h(x_n) \approx \cfrac{1}{3}\left[ y_h(x_n) - y_{2h}(x_n) \right]}$$
 \subsubsection{Fourth Order}
 The fourth order Runge-Kutta Method, also known as the classic Runge-Kutta Method is the most widely known member of the Runge-Kutta Family, and is known as 'RK4'. The algorithm goes as follows. Given a step-size of $h > 0$, in each iteration we define the following:
 \begin{align*}
@@ -167,7 +183,8 @@ The step-size taken for the solutions was $h = 0.025$.
 
 As we can see in the above figure, the RK4 solutions still coincide with the analytical solutions.
 
-\section{Error Analysis}
+\clearpage
+\section{Plotting the Errors}
 \begin{figure}[h]
     \centering
     \includegraphics[width=\linewidth]{"errors_euler.png"}
